@@ -1,0 +1,9 @@
+<h1>Conferences</h1>
+
+<ul>
+  <% @conferences.each do |conference| %>
+    <li><%= link_to conference.name, conference %></li>
+  <% end %>
+</ul>
+
+<%= will_paginate @conferences %>

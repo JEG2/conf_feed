@@ -1,0 +1,8 @@
+<h1><%= @conference.name %></h1>
+
+<dl>
+  <% @talks.each do |talk| %>
+    <dt><%= talk.presented_at.strftime("%m/%d/%Y %I:%M %p") %></dt>
+    <dd><%= link_to talk.title, [talk.conference, talk] %></dd>
+  <% end %>
+</dl>

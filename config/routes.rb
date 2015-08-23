@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   get    "verify/:user_id"       => "verifications#new",    as: :verify
   get    "verify/confirm/:token" => "verifications#create", as: :confirm
 
+  resources :conferences do
+    resources :talks
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'conferences#index'
+  root "conferences#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
