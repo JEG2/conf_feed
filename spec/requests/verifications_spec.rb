@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "Verifications", type: :request do
   it "verifies users" do
     user = FactoryGirl.create(:user)
+    user.verified_at = nil
+    user.save!
     expect(user.verified_at).to be_nil
 
     get "/verify/#{user.id}"
