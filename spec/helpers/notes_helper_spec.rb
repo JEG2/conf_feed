@@ -1,0 +1,17 @@
+require 'rails_helper'
+
+# Specs in this file have access to a helper object that includes
+# the NotesHelper. For example:
+#
+# describe NotesHelper do
+#   describe "string concat" do
+#     it "concats two strings with spaces" do
+#       expect(helper.concat_strings("this","that")).to eq("this that")
+#     end
+#   end
+# end
+RSpec.describe NotesHelper, type: :helper do
+  it "formats Markdown content" do
+    expect(helper.fancy_format("**bold**")).to match(/<strong>bold<\/strong>/)
+  end
+end

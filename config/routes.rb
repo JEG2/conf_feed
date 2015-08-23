@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notes
   # User Routes
   get    "signup"                => "users#new",            as: :signup
   post   "signup"                => "users#create"
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
   get    "verify/confirm/:token" => "verifications#create", as: :confirm
 
   resources :conferences do
-    resources :talks
+    resources :talks do
+      resources :notes
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
