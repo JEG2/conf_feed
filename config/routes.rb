@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # User Routes
-  get  "signup"                => "users#new",            as: :signup
-  post "signup"                => "users#create"
-  get  "signin"                => "sessions#new",         as: :signin
-  post "signin"                => "sessions#create"
-  get  "verify/:user_id"       => "verifications#new",    as: :verify
-  get  "verify/confirm/:token" => "verifications#create", as: :confirm
+  get    "signup"                => "users#new",            as: :signup
+  post   "signup"                => "users#create"
+  get    "signin"                => "sessions#new",         as: :signin
+  post   "signin"                => "sessions#create"
+  delete "signout"               => "sessions#destroy"
+  get    "verify/:user_id"       => "verifications#new",    as: :verify
+  get    "verify/confirm/:token" => "verifications#create", as: :confirm
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
