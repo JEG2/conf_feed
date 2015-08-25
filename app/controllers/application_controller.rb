@@ -25,4 +25,11 @@ class ApplicationController < ActionController::Base
     session[:user_id] && User.find(session[:user_id])
   end
   helper_method :current_user
+
+  def ensure_ajax
+    unless request.xhr?
+      flash[:alert] = "Access denied."
+      redirect_to root_path
+    end
+  end
 end
